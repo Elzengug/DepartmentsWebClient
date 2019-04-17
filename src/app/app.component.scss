@@ -1,0 +1,26 @@
+.departments{
+    padding-top: 10px;
+}
+.green-button{
+    display: inline-block;
+    font-weight: 400;
+    color:#28a745;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-color: #28a745;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s 
+}
+.green-button:hover{
+    color: white;
+    background-color: #28a745;
+}
+.edit-button{
+    width: 100%;
+}
