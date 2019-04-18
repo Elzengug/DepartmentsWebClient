@@ -9,25 +9,25 @@
             Name is not valid
         </div>
         <div class="form-group">
-          <input class="form-control" name="email" placeholder="Email" [(ngModel)]="employee.email" #name="ngModel" required email>
-      </div>
-      <div [hidden]="email.valid || email.untouched" style="height:50px" class="alert alert-danger">
+          <input class="form-control" name="email" placeholder="Email" [(ngModel)]="employee.email" #name="ngModel" required>
+        </div>
+        <div [hidden]="email.valid || email.untouched" style="height:50px" class="alert alert-danger">
           Email is not valid
-      </div>
-      <div class="form-group">
-        <input class="form-control" name="age" placeholder="Age" [(ngModel)]="employee.age" #name="ngModel" required number>
-    </div>
-    <div [hidden]="age.valid || age.untouched" style="height:50px" class="alert alert-danger">
-        Age is not valid
-    </div>
-    <div class="form-group">
-      <input class="form-control" name="employementDate" placeholder="EmployementDate" [(ngModel)]="employee.employementDate" #name="ngModel" required >
-  </div>
-  <div [hidden]="employementDate.valid || employementDate.untouched" style="height:50px" class="alert alert-danger">
-      Date is not valid
-  </div>
+        </div>
         <div class="form-group">
-            <button [disabled]="name.invalid || email.invalid || age.invalid || employementDate.invalid" class="btn btn-outline-success" style="margin-top: 10px;" (click)="submit(employee)">Create</button>
+        <input class="form-control" name="age" placeholder="Age" [(ngModel)]="employee.age" #name="ngModel" required>
+        </div>
+        <div [hidden]="age.valid || age.untouched" style="height:50px" class="alert alert-danger">
+        Age is not valid
+        </div>
+        <div class="form-group">
+        <input class="form-control" name="employeementDate" placeholder="EmployeementDate" [(ngModel)]="employee.employeementDate" #name="ngModel" required >
+        </div>
+        <div [hidden]="employeementDate.valid || employeementDate.untouched" style="height:50px" class="alert alert-danger">
+      Date is not valid
+        </div>
+        <div class="form-group">
+            <button [disabled]="name.invalid || email.invalid || age.invalid || employeementDate.invalid" class="btn btn-outline-success" style="margin-top: 10px;" (click)="submit(employee)">Create</button>
         </div>
     </fieldset>
 </form>

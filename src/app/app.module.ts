@@ -18,10 +18,10 @@ import { UpdateEmployeeComponent } from './components/update-employee/update-emp
 const appRoutes: Routes =[
   {path: "", component: HomeComponent},
   {path: "employees", component: EmployeeComponent},
-  {path: "create-employee", component: CreateEmployeeComponent},
-  {path: "update-employee/:id", component: UpdateEmployeeComponent},
   {path: "create-department", component: CreateDepartmentComponent},
-  {path: "update-department", component: UpdateDepartmentComponent}
+  {path: "update-department", component: UpdateDepartmentComponent},
+  {path: "create-employee", component: CreateEmployeeComponent},
+  {path: "update-employee", component: UpdateEmployeeComponent}
 ]
 
 @NgModule({
@@ -33,6 +33,7 @@ const appRoutes: Routes =[
     EmployeeComponent,
     CreateEmployeeComponent,
     UpdateEmployeeComponent
+
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

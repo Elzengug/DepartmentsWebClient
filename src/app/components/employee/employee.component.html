@@ -1,5 +1,9 @@
-<div class="departments card border-light mb-3 mt-4" style="width: 70%; margin: auto">
-  <div class="create-button"> <a class="green-button" href="/create-employee">Create</a></div>
+<div class="departments card border-light mb-3 mt-4" style="width: 90%; margin: auto">
+  <div class="create-button"> <a [queryParams]="{ id: queryId }" [routerLink]="['/create-employee']" class="green-button">Create</a></div>
+  <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -13,14 +17,24 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let e of employees">
-        <td scope="row">{{d.id}}</td>
-        <td scope="row">{{d.name}}</td>
-        <td scope="row">{{d.email}}</td>
-        <td scope="row">{{d.age}}</td>
-        <td scope="row">{{d.employeementDate}}</td>
-        <td><div class="edit-button"><a [queryParams]="{ id: d.id }"  [routerLink]="['update-department']" class="green-button" >Edit</a></div></td>
-    <td><button class="btn btn-outline-danger" (click)="deleteDepartment(d.id)">Delete</button></td>
-      </tr>
-    </tbody>
+        <tr *ngFor="let e of employeesPage.employees">
+            <td scope="row">{{e.id}}</td>
+            <td>{{e.name}}</td>
+            <td>{{e.email}}</td>
+            <td>{{e.age}}</td>
+            <td>{{e.employeementDate}}</td>
+            <td><div class="edit-button"><a [queryParams]="{ id: e.id, depId: queryId }"  [routerLink]="['/update-employee']" class="green-button" >Edit</a></div></td>
+            <td><button class="btn btn-outline-danger" (click)="deleteEmployee(e.id)">Delete</button></td>
+           
+          </tr>     
+        </tbody>        
   </table>
+  <div *ngIf="employeesPage.employees == 0" class="no-data alert-info"><strong> No Data</strong></div>
+  <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li *ngIf="employeesPage.pageViewModel.hasPreviousPage" class="page-item"> <button class="page-link" (click)="changePage(employeesPage.pageViewModel.pageNumber - 1)">Previous</button> </li>
+        <li *ngIf="employeesPage.pageViewModel.hasNextPage" class="page-item" ><button class="page-link" (click)="changePage(employeesPage.pageViewModel.pageNumber + 1)">Next</button></li>
+      </ul>
+    </nav>
+  
+  

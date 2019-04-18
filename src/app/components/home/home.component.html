@@ -1,5 +1,10 @@
 <div class="departments card border-light mb-3 mt-4" style="width: 70%; margin: auto">
-  <div class="create-button"> <a class="green-button" href="/create-department">Create</a></div>
+  <div class="create-button"> <a href="/create-department" class="green-button" >Create</a>
+  </div>
+  <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
   <table class="table table-hover">
     <thead>
       <tr>
@@ -11,7 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let d of departments">
+      <tr *ngFor="let d of departmentPage.departments">
         <td scope="row">{{d.id}}</td>
         <td>{{d.name}}</td>
         <td><div class="edit-button"><a [queryParams]="{ id: d.id }"  [routerLink]="['update-department']" class="green-button" >Edit</a></div></td>
@@ -20,4 +25,10 @@
       </tr>
     </tbody>
   </table>
+  <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li *ngIf="departmentPage.pageViewModel.hasPreviousPage" class="page-item"> <button class="page-link" (click)="changePage(departmentPage.pageViewModel.pageNumber - 1)">Previous</button> </li>
+        <li *ngIf="departmentPage.pageViewModel.hasNextPage" class="page-item" ><button class="page-link" (click)="changePage(departmentPage.pageViewModel.pageNumber + 1)">Next</button></li>
+      </ul>
+    </nav>
   </div>

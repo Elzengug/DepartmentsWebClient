@@ -12,8 +12,9 @@ export class DepartmentService {
   constructor(private http: HttpClient, private rout: Router) {
     this.adres = environment.host;
   }
-  getDepartments(){
-    return this.http.get(this.adres + "/api/Department/GetAllDepartments")
+  getDepartments(page: number){
+    const params = new HttpParams().set('page', page.toString())
+    return this.http.get(this.adres + "/api/Department/GetAllDepartments", {params})
   }
   createDepartment(department : DepartmentModel){
       const body = {
